@@ -2,14 +2,23 @@
 pragma solidity ^0.8.0;
 
 contract Counter {
+    int public number;
 
-    function counter(int number) public pure returns(int) {
-        for(number = 0; number < 10; number ++){
-            number ++;
+    constructor(int _number) {
+        number = _number;
+    }
+
+    function increase() public returns(int) {
+       for(int i = 0; i < 10; i++){
+            number++;
         }
+        return number;
+        
+    }
 
-        for(number = 10; number >= 10; number --){
-            number --;
+    function decrease() public returns(int) {
+        for(int i = 10; i > 10; i--){
+            number--;
         }
         return number;
     }
