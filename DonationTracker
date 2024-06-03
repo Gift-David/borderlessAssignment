@@ -1,0 +1,30 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract DonationTracker {
+    address[] public donors;
+    mapping(address => int) public Donations;
+
+    constructor() payable {
+        
+    }
+
+    fallback() external payable {
+        // donate();
+     }
+    receive() external payable { }
+
+    function donators() public view returns(uint) {
+        return donors.length;
+    }
+
+    function getDonation(address _donor) public view returns(uint) {
+        return donations[_donor] ;
+    }
+
+    function donate(address _donor, int value) public payable {
+        Donations[_donor] = value;
+    }
+
+
+}
